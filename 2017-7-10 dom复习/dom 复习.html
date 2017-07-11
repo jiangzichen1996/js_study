@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+    <h1 id="h1">haha</h1>
+    <p>hehe</p>
+</div>
+<script>
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");
+    var oH1 = document.getElementById("h1");
+    //oDiv1.childNodes（所有子节点）
+    //oDiv1.children(所有元素子节点)
+    //oDiv1.parentNode(查找父元素)
+    //oDiv1.offsetParent(查找最近的已定位的父元素)
+    //oDiv1.nextSibling（下一个兄弟节点）
+    // oDiv1.nextElementSibling（下一个元素兄弟节点） previousSibling/previousElementSibling（上一个兄弟节点/上一个元素兄弟节点）
+    /*查找所有兄弟元素节点*/
+    function siblings(elem){
+        var abrother=elem.parentNode.children;
+        var arr = [];
+        for(var i=0;i<abrother.length;i++){
+            if(abrother[i]!=elem){
+                arr.push(abrother[i]);
+            }
+        }
+        return arr;
+
+    }siblings(oDiv2);
+    console.log(siblings(oDiv2));
+    var oSpan = document.createElement('span');
+    oSpan.innerHTML = 'xx';
+    oDiv1.appendChild(oSpan);//增加
+
+    oDiv1.insertBefore(oSpan,oH1);
+    // remove(oH1);//删除
+    /*删除给定元素*/
+    function remove(elem){
+        elem.parentNode.removeChild(elem);
+
+    }
+    /*在给定元素前面插入一个新元素*/
+    function before(elem,newNode){
+        elem.parentNode.insertBefore(newNode,elem);
+    }
+    /*在给定元素后面插入一个新元素*/
+    function after(elem,newNode){
+        if(elem.nextElementSibling){
+            elem.parentNode.insertBefore(newNode,elem.nextSibling);
+        }else{
+            elem.parentNode.appendChild(newNode);
+        }
+    }
+    var oP=document.getElementsByTagName('p');
+    after(oH1,oP);
+</script>
+</body>
+</html>
