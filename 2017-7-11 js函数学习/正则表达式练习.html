@@ -5,15 +5,16 @@
     <title></title>
 </head>
 <body>
-
+<button id="div1"></button>
 <script src="../mylib.js"></script>
 <script>
 
     /*//正则表达式两种方法
      var reg = new RegExp();//标准写法
      var re =// //正则表达式直接量*/
+    var oDiv=$("#div1");
     var aa=" 13 45878 ";
-    console.log(trim(aa))
+    console.log(trim(aa));
     function getByClass(className,context){
         context=context || document;
         var arr = context.getElementsByTagName("*");
@@ -26,7 +27,6 @@
         }
         return sss;
     }
-
 </script>
 </body>
 </html>

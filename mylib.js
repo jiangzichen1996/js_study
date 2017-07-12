@@ -90,7 +90,7 @@ function $(selector,context){
     context = context ||document;
     switch (selector.charAt(0)){
         case'#':
-            return document.getElementById(selector.substring(1));
+            return [document.getElementById(selector.substring(1))];
             break;
         case'.':
             return getByClass(selector.substring(1),context);
@@ -159,14 +159,35 @@ function css(elem,attr,value){
 
 }
 
-
+/**
+ * 对元素进行事件绑定
+ * @param elem
+ * @param type
+ * @param fn
+ */
 function addEvent(elem,type,fn){
     if(elem.addEventListener){//标准浏览器
         elem.addEventListener(type,fn,false);
     }else if(elem.attachEvent){
-        elem.attachEvent("on"+type,function(){
-            fn.call(elem);
-        });//ie8 绑定this 会绑到window
+         elem[type+fn] = function(){
+            fn.call(elem);};
+        elem.attachEvent("on"+type,elem[type+fn]//保证函数名唯一 防止重复绑定
+        );//ie8 绑定this 会绑到window
     }else{elem["on"+type]=fn;}
 }
+/**
+ * 移除事件绑定
+ * @param elem
+ * @param type
+ * @param fn
+ */
 
+function removeEvent(elem,type,fn){
+    if(elem.removeEventListener){//标准浏览器
+        elem.removeEventListener(type,fn,false);
+    }else if(elem.detachEvent){
+        elem.detachEvent("on"+type,elem[type+fn]
+        );//ie8 绑定this 会绑到window
+    }else{elem["on"+type]=fn;}
+
+}
