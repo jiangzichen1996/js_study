@@ -229,7 +229,7 @@ function $(selector,context){
             do{
                 elem = elem && elem.nextSibling;
             }while(elem && elem.nodeType != 1);
-            return elem;
+            return elem; 
         }
     };
 }
