@@ -223,7 +223,13 @@ function $(selector,context){
                     }
                 }
                 return this;
-            }
+            }},
+        next: function () {
+            var elem = elements[0];
+            do{
+                elem = elem && elem.nextSibling;
+            }while(elem && elem.nodeType != 1);
+            return elem;
         }
-    }
+    };
 }
