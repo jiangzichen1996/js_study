@@ -110,6 +110,8 @@ function trim(str){
  * @param context
  * @returns {Array}
  */
+
+getByClass(className,odiv);
 //indexof 查找字符串出现的位置 找到返回位置 找不到返回-1
 function getByClass(className,context){
     context = context||document;
@@ -117,10 +119,10 @@ function getByClass(className,context){
     var result = [];
     var re = new RegExp("\\b"+className+"\\b");
     for(var i=0;i<arr.length;i++){
-
         if(re.test(arr[i].className)){
             result.push(arr[i]);
         }
+
     }
     return result;
 }
