@@ -28,7 +28,7 @@
 <script src="../jquery-1.9.1.min.js"></script>
 <script>
     $(function(){
-        $('#div1').on('click',function(){
+        /*$('#div1').on('click',function(){
             var target;
             if($('html').scrollTop()){target = $("html")}
             else{target = $("body")}
@@ -40,7 +40,7 @@
 
                 target.scrollTop($iS -= 50)
             },30);
-        });
+        });*/
 /*
         var oDiv = document.getElementById('div1');
         oDiv.onclick=function(){
@@ -51,6 +51,17 @@
             },30)
         }
 */
+        $('#div1').on('click',function(){
+            var target;
+            if($('html').scrollTop()){target = $('html')}
+            else{target = $('body')}
+            var $iS=target.scrollTop();
+            var timer = setInterval(function(){
+                if($iS<=0){clearInterval(timer)}
+                target.scrollTop($iS-=30)
+
+            },30);
+        })
 
 
     });

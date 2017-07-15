@@ -18,7 +18,7 @@
 <script src="../jquery-1.9.1.min.js"></script>
 <script>
     $(function(){
-        $('#search').on("keyup",function(){
+        /*$('#search').on("keyup",function(){
             if(this.value!='')
             {$('#div1 div').css('background','white');
               var $div= $('#div1 div:contains('+this.value+')');
@@ -28,8 +28,15 @@
                 //.css('background','green');
         })
 
+*/
+        $('#search').on('keyup', function () {
+            if(this.value!=''){
+            $('#div1 div').css('background','white');
+            $('#div1 div:contains('+this.value+')').css('background','red');
+        }else{$('#div1 div').css('background','white');}
 
 
+        })
 
 
 
