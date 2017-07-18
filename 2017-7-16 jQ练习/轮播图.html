@@ -83,7 +83,7 @@
 </div>
 <script src="../jquery-1.9.1.min.js"></script>
 <script>
-    $(function(){
+    /*$(function(){
         var nowIndex=0;
         var timer;
         var $lis=$('#nav li');
@@ -131,7 +131,47 @@
             if(nowIndex==$lis.length-1){nowIndex=-1;}
             nowIndex++;
             changeImg();
-        },1000);}*/
+        },1000);}
+    })*/
+    $(function(){
+        var nowIndex = 0;
+        var $imgs = $('#imgs img');
+        var $lis = $("#nav li");
+        var timer;
+        $lis.on('mouseover',function(){
+            nowIndex = $(this).index();
+            changeImg()
+        });
+        $("#arrows div").on('click',function(){
+            if($(this).attr('id')=='right'){// 取属性使用attr（）函数
+                nowIndex++;
+                if(nowIndex>$imgs.length-1){nowIndex=0}
+
+            }else{
+                nowIndex--;
+                if(nowIndex<0){nowIndex=$imgs.length-1}
+            }changeImg();
+
+        });
+        function play(){
+            timer = setInterval(function(){
+            $('#right').trigger('click');
+        },1000);}
+        play();
+        $("#container").on('mouseover',function(){
+            clearInterval(timer);
+        });
+        $("#container").on('mouseout',function(){
+            play();
+        });
+        function changeImg(){
+            $lis.eq(nowIndex).addClass('selected').siblings().removeClass('selected');
+            $imgs.eq(nowIndex).addClass('selected').siblings().removeClass('selected');
+
+        }
+
+
+
     })
 
 </script>
