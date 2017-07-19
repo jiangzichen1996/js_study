@@ -27,8 +27,6 @@ $(function(){
         nowIndex = $(this).index();
         changeImg();
     });
-    console.log(nowIndex);
-
     function play(){
     timer = setInterval(function(){
     nowIndex++;
@@ -44,7 +42,7 @@ $(function(){
     });
     function changeImg(){
         $a.eq(nowIndex).addClass('chos').siblings().removeClass('chos');
-        $imgs.eq(nowIndex).fadeIn().siblings().fadeOut();
+        $imgs.eq(nowIndex).stop(false,true).fadeIn().siblings().stop(false,true).fadeOut();
     }
 /*标签*/
     var $jna = $('#jnNoticeInfo a');
@@ -73,7 +71,36 @@ $(function(){
         $tip.offset({
         left: e.pageX+20,
         top: e.clientY+20
-    });})
+    });});
+/* 网页换肤 */
+    $('#skin li').on('click',function(){
+        $(this).addClass('selected').siblings().removeClass('selected');
+    var skin = $(this).attr('id');
+        //cookie 的用法  $.cookie  要使用{expires：7}这种句式
+        $('#cssfile').attr('href',"styles/skin/"+skin+".css");
+        $.cookie('skin',skin,{expires:7});
+    });
+    skin = $.cookie('skin');
+    $('#'+skin).addClass('selected').siblings().removeClass('selected');
+    $('#cssfile').attr('href',"styles/skin/"+skin+".css");
+/*  轮播图2  */
+    $("#jnBrandTab li").on('click',function(){
+        $(this).addClass('chos').siblings().removeClass('chos');
+        nowIndex = $(this).index();
+        var $len = $("#jnBrandList li").innerWidth();//js要使用inner outer取得宽度
+        $len = -$len*4*nowIndex;
+        console.log();
+        //animate 函数 第一个里面直接{参数就可以了}
+        $("#jnBrandList").stop().animate({
+                left:$len
+        },1000);
+    }).eq(0).addClass('chos').siblings().removeClass('chos');
+
+
+
+
+
+
 
 
 
