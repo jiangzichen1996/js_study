@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #left,#center,#right{
+            height: 300px;
+            /*float: left;*/
+            /**/
+        }
+        #left{
+            background-color: #f00;
+            width: 300px;
+            /*-webkit-box-flex: 1;*/
+            /*white-space: nowrap;*/
+            /*overflow: hidden;*/
+            /*text-overflow: ellipsis;*/
+        }
+        #right{
+            width: 300px;
+            background-color: #0f0;
+            /*-webkit-box-flex: 1;*/
+        }
+        #center{
+            background: #00f;
+            width: 0;
+            -webkit-box-flex: 1;
+        }
+        #main{
+            display: -webkit-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="left"></div>
+        <div id="center"></div>
+        <div id="right"></div>
+    </div>
+<!--有内容的时候，宽度设置成0-->
+
+
+
+</body>
+</html>

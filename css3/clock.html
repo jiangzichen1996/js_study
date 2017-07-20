@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #circle{
+            width: 500px;
+            height: 500px;
+            border: 5px solid;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        .hour,.second{
+            height: 50px;
+            width: 2px;
+            position: absolute;
+            left: 250px;
+            -webkit-transform-origin: -250px;
+            -moz-transform-origin: -250px;
+            -ms-transform-origin: -250px;
+            -o-transform-origin: -250px;
+            transform-origin: 0 250px;;
+            transform: rotate(90deg);
+        }
+        .second{
+            height: 30px;
+            background: #000;
+        }
+        .hour{
+            background: red;
+            z-index: 1;
+            width: 2px;
+        }
+        #second,#hour,#minute{
+            height: 110px;
+            width: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin:0 0;
+            -ms-transform-origin: 0 0;
+            -o-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+        #second{
+            height: 70px;
+            background: red;
+            animation:remove 60s linear infinite ;
+        }
+        #minute{
+            height: 90px;
+            background: blue;
+            animation:remove 3600s linear infinite ;
+        }
+        #hour{
+            background: yellow;
+            animation:remove 86400s linear infinite ;
+        }
+
+        @-webkit-keyframes remove {
+            0%{
+                transform: rotate(0deg)
+            }
+            100%{
+                transform: rotate(360deg)
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div id="circle">
+    </div>
+    <div id="second"></div>
+    <div id="hour"></div>
+    <div id="minute"></div>
+
+    <script src="../jquery-1.9.1.min.js"></script>
+<script>
+    for( i=0;i<12;i++){
+        $('#circle').append('<div class="hour">')
+
+    }
+    var aHour = document.getElementsByClassName('hour');
+    for(var i=0;i<aHour.length;i++){
+        var deg = 30*i;
+        aHour[i].style.transform = 'rotate('+deg+'deg)'
+    }
+    for( i=0;i<60;i++){
+
+           $('#circle').append('<div class="second">')
+
+    }
+    var aSecond = document.getElementsByClassName('second');
+    for( i=0;i<60;i++){
+        deg = 6*i;
+        aSecond[i].style.transform = 'rotate('+deg+'deg)'
+
+    }
+
+</script>
+</body>
+</html>

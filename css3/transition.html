@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #f00;
+            /*transition: width 2s linear,background 2s linear;*/
+            /*有变化就可以触发  js也可以触发*/
+            transition: all 2s linear 1s;
+            /*第一个参数 触发对象 第二个参数 持续时间 第三个 过渡方式 第四个 延时时间*/
+            /*linear        线性
+              ease          平滑过渡
+              ease-in       由慢到快
+              ease-out      由快到慢
+              ease-in-out   由慢到快再到慢
+            */
+
+            /*
+            掘金
+            简书
+            segmentfault
+
+            */
+        }
+        /*#div1:hover{*/
+            /*width: 500px;*/
+            /*background: #0000ff;*/
+
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="div1">
+</div>
+<script>
+    var oDiv1 = document.getElementById('div1')
+    oDiv1.onclick=function(){
+        this.style.width = '400px';
+    }
+</script>
+</body>
+</html>

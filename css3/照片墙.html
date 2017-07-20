@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<style>-->
+        <!--*{-->
+            <!--margin: 0;-->
+            <!--padding: 0;-->
+        <!--}-->
+        <!--#container{-->
+            <!--width: 500px;-->
+            <!--margin: 0 auto;-->
+            <!--position: relative;-->
+        <!--}-->
+        <!--#container img{-->
+            <!--position: absolute;-->
+            <!--top: 100px;-->
+            <!--left: 0;-->
+            <!--border: 10px solid #CCCCCC;-->
+            <!--box-shadow: 5px 5px 5px rgba(50,50,50,0.4);-->
+            <!--transition: all 1s ease;-->
+        <!--}-->
+        <!--#container img:first-child{-->
+            <!--transform: rotate(20deg);-->
+        <!--}-->
+        <!--#container img:last-child{-->
+            <!--transform: rotate(-20deg);-->
+        <!--}-->
+        <!--#container img:hover{-->
+            <!--box-shadow: 10px 10px 5px rgba(50,50,50,0.4);-->
+            <!--z-index: 1;-->
+            <!-&#45;&#45;webkit-transform: scale(1.2);-->
+            <!-&#45;&#45;moz-transform: scale(1.2);-->
+            <!-&#45;&#45;ms-transform: scale(1.2);-->
+            <!-&#45;&#45;o-transform: scale(1.2);-->
+            <!--transform: scale(1.2);-->
+            <!--/*transform  后面的值会把前面覆盖 想设置多个值用空格分隔*/-->
+        <!--}-->
+    <!--</style>-->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 560px;
+            height: 360px;
+            transform: translate(-50%,-50%);/*translate*/
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+        }
+        #container img{
+            box-shadow: 5px 5px 5px rgba(50,50,50,.4);
+            position: absolute;
+            transition: all 1s ease;
+        }
+        #container img:first-child{
+            transform: rotate(20deg);
+        }
+        #container img:last-child{
+            transform: rotate(-20deg);
+        }
+        #container img:hover{
+            box-shadow: 10px 10px 5px rgba(50,50,50,.4);
+            transform: scale(1.3);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <img src="img/3.jpg"></img>
+    <img src="img/4.jpg"></img>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            margin:100px auto;
+            border: 1px solid #000000;
+
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            transform:translate(100px,50px);/*向右向下为正*/
+        }
+        /*元素居中 分为行级元素和块级元素居中*/
+        /*块级元素可以通过定位 50% 50% 再使用margin-top/margin-left减去自身的50%   也可以通过translate(50%,50%)回拉*/
+        /*行级元素（行内元素）通过text-align: center;和line-height = 自身高度
+*/
+        #div3{
+            width: 400px;
+            height: 400px;
+            background: #CCCCCC;
+        }
+        #div4{
+            width: 200px;
+            height: 200px;
+            background: #999999;
+            transform: translate(50%,50%);
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">div</div>
+</div>
+<div id="div3">
+    <div id="div4">div</div>
+</div>
+</body>
+</html>
