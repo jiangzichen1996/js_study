@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            animation: xx 5s 1s ease forwards infinite;
+        }
+        @-webkit-keyframes xx {
+            0%{
+                width: 200px;
+
+            }
+            50%{
+                width: 400px;
+            }
+            100%{
+                width: 600px;
+            }
+            /*transiton  过渡
+              animation  可以做出复杂动画
+
+
+
+
+            */
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
