@@ -1,0 +1,14 @@
+图片的预加载
+首先 for循环并且 var 一个counter
+for(var i=0;i<图片数量;i++)
+{
+var oImg =new Image()
+oImg.onload = function(){
+counter++;
+if(i == 图片数量){
+所有图片加载完成
+loadSuccess();
+}
+};
+oImg.src = 'images/'+(i+1)+'.png'
+}

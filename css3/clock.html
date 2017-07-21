@@ -40,8 +40,18 @@
             z-index: 1;
             width: 2px;
         }
+        #center{
+            width: 20px;
+            height: 20px;
+            background: #ff6600;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+        }
         #second,#hour,#minute{
-            height: 110px;
+            height: 60px;
             width: 5px;
             position: absolute;
             top: 50%;
@@ -53,29 +63,17 @@
             transform-origin: 0 0;
         }
         #second{
-            height: 70px;
+            height: 110px;
             background: red;
-            animation:remove 60s linear infinite ;
         }
         #minute{
             height: 90px;
             background: blue;
-            animation:remove 3600s linear infinite ;
         }
         #hour{
-            background: yellow;
-            animation:remove 86400s linear infinite ;
+            background: black;
         }
 
-        @-webkit-keyframes remove {
-            0%{
-                transform: rotate(0deg)
-            }
-            100%{
-                transform: rotate(360deg)
-            }
-
-        }
     </style>
 </head>
 <body>
@@ -84,29 +82,45 @@
     <div id="second"></div>
     <div id="hour"></div>
     <div id="minute"></div>
+    <div id="center"></div>
 
     <script src="../jquery-1.9.1.min.js"></script>
 <script>
-    for( i=0;i<12;i++){
+    $(function(){
+        for( i=0;i<12;i++){
         $('#circle').append('<div class="hour">')
 
     }
-    var aHour = document.getElementsByClassName('hour');
-    for(var i=0;i<aHour.length;i++){
-        var deg = 30*i;
-        aHour[i].style.transform = 'rotate('+deg+'deg)'
-    }
-    for( i=0;i<60;i++){
+        var aHour = document.getElementsByClassName('hour');
+        for(var i=0;i<aHour.length;i++){
+            var deg = 30*i;
+            aHour[i].style.transform = 'rotate('+deg+'deg)'
+        }
+        for( i=0;i<60;i++){
 
-           $('#circle').append('<div class="second">')
+            $('#circle').append('<div class="second">')
 
-    }
-    var aSecond = document.getElementsByClassName('second');
-    for( i=0;i<60;i++){
-        deg = 6*i;
-        aSecond[i].style.transform = 'rotate('+deg+'deg)'
+        }
+        var aSecond = document.getElementsByClassName('second');
+        for( i=0;i<60;i++){
+            deg = 6*i;
+            aSecond[i].style.transform = 'rotate('+deg+'deg)' }
+        run();
+        setInterval(run
+        ,1);
+    function run(){
+        var date = new Date();
+        var dS = 6*date.getSeconds()+180;
+        var dMin =6*date.getMinutes()+0.1*date.getSeconds()+180;
+        var dH = 30*date.getHours()+0.5*date.getMinutes()+180;
+        $('#second').css('transform','rotate('+dS+'deg)');
+        $('#minute').css('transform','rotate('+dMin+'deg)');
+        $('#hour').css('transform','rotate('+dH+'deg)');}
 
-    }
+
+
+
+    });
 
 </script>
 </body>

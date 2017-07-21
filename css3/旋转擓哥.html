@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            height: 1000px;
+            perspective: 1000px;
+            perspective-origin:50% 200px;  /*视角应该加在body上 这样就可以相对container进行移动*/
+        }
+        #container{
+            width: 240px;
+            height: 320px;
+            background: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -160px;
+            /*如果使用transform:translate(-160px,-120px)
+              由于后面设的ransform:translate 会把前面的覆盖 所以不能使用*/
+            margin-left: -120px;
+            transform-style: preserve-3d;
+            transition:all 1s linear;
+
+        }
+        #container img{
+            width: 240px;
+            height: 320px;
+            position: absolute;
+            transition:all 1s linear;
+
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    
+</div>
+<script>
+    var a = 0;
+    var oDiv = document.getElementById('container');
+    var counter = 0;
+    for(var i=0;i<9;i++){
+        var oImg = new Image();
+        oImg.onload = function(){
+            counter++;
+            if(counter==9){
+                loadSuccess();
+            }
+        };
+        oImg.src = 'img/0'+(i+1)+'.jpg';
+        oDiv.appendChild(oImg);
+    }
+    var aImg = oDiv.getElementsByTagName('img');
+    function loadSuccess(){
+
+        for(var i=0;i<9;i++) {
+            aImg[i].style.transform = 'rotateY(' + ((1+i) * 40) + 'deg) translateZ(500px)'
+            aImg[i].style.transitionDelay =100 * i+'ms'
+        }
+    }
+    oDiv.onclick = function(){
+        a++;
+            this.style.transform = 'rotateY(' + a * 40 + 'deg)'
+    }
+</script>
+</body>
+</html>
