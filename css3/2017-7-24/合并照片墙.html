@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>照片墙</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body,#container{
+            width: 100%;
+            height: 100%;
+
+        }
+        body{
+            position: relative;
+        }
+        #container{
+            background-image: url("img/bg.jpg");
+
+        }
+        .img{
+            width: 125px;
+            height: 125px;
+            border: 5px solid white;
+            box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+            position: absolute;
+            left: -500px;
+            top: -500px;
+            transition: all 1s ease;
+            cursor: pointer;
+        }
+        .img span{
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        #left,#right{
+            width: 60px;
+            height: 60px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            display: none;
+            cursor: pointer;
+        }
+        #left{
+            background-image: url(img/prev.png);
+            left: 0;
+            border-radius: 0 8px 8px 0;
+        }
+        #right{
+            background-image: url(img/next.png);
+            right: 0;
+            border-radius: 8px 0 0 8px;
+        }
+    </style>
+</head>
+<body>
+<div id="container" ></div>
+<div id="left"></div>
+<div id="right"></div>
+<script>
+    var oLeft = document.getElementById('left');
+    var oRight = document.getElementById('right');
+    var oContainer = document.getElementById('container');
+    var COL = 6;
+    var ROW = 4;
+    var NUM = COL*ROW;
+    var nowIndex = 0;
+    var count = 0;
+    var index = 0;//index要定义在前面  因为在循环时执行
+    for(var i=0;i<NUM ;i++){
+        var oImg = new Image();
+        count++;
+        if(count==2*NUM){
+            loadSuccess();
+        }
+
+        oImg.src = 'img/thumbs/'+(i+1)+'.jpg';
+    }
+    for(var i = 0;i<NUM;i++){
+        var oBigImg = new Image();
+        count++;
+        if(count==2*NUM){
+            loadSuccess();
+        }
+        oBigImg.src = 'img/'+(i+1)+'.jpg';
+    }
+
+    function loadSuccess(){
+            for(var i=0;i<ROW;i++){
+                for(var j=0;j<COL;j++){
+                var oDiv = document.createElement('div');
+                index++;
+                oDiv.index=index;
+                oDiv.order = {
+                    col:i+1,
+                    row:j+1
+                };
+                oDiv.style.backgroundImage = "url('img/thumbs/"+index+".jpg')";//应该加style
+            oDiv.className = 'img';//在原生js中添加类名  使用obj.className= 'xxx' 这种方式
+            oDiv.innerHTML = '<span></span>';
+            oContainer.appendChild(oDiv);
+
+        }
+        }
+        var aImg = document.getElementsByClassName("img");
+        var Width = (oContainer.offsetWidth-COL*aImg[0].offsetWidth)/(COL+1);
+        var Height = (oContainer.offsetHeight-ROW*aImg[0].offsetHeight)/(ROW+1);
+        var bFlag = true;
+        for(var i=0;i<NUM;i++){
+            var n = aImg[i].order.row;
+            var m = aImg[i].order.col;
+            aImg[i].style.transitionDelay = (24-i)*100+ 'ms';//一定要注意语句的顺序 放在后面会影响效果
+            aImg[i].style.left = (n*Width + (n-1)*oDiv.offsetWidth)+'px';
+            aImg[i].style.top = (m*Height + (m-1)*oDiv.offsetHeight)+'px';
+            aImg[i].style.transform = 'rotate('+(Math.random()*40-20)+'deg)'
+        }
+        oContainer.onclick=function(e){
+            if(e.target === this){
+                return false;
+            }else{
+                if(bFlag){
+                for(var i=0;i<NUM;i++){
+                    var oSpan = aImg[i].getElementsByTagName('span')[0];
+                    aImg[i].style.borderWidth = "1px";
+                    var n = aImg[i].order.row;
+                    var m = aImg[i].order.col;
+                    aImg[i].style.transitionDelay = 0+ 'ms';//一定要注意语句的顺序 放在后面会影响效果
+                    aImg[i].style.transform = 'rotate(0deg)';
+                    console.log(oDiv.offsetWidth);
+                    aImg[i].style.left =((oContainer.offsetWidth-750)/2+(n-1)*(aImg[0].offsetWidth-8)) +'px';
+                    aImg[i].style.top =((oContainer.offsetHeight-500)/2+(m-1)*(aImg[0].offsetHeight-8))+'px';
+                    if(e.target.className!='img'){
+                        nowIndex =e.target.parentNode.index;
+                    }else{
+                        nowIndex =e.target.index;
+                    }
+                    oSpan.style.backgroundImage = 'url(img/'+nowIndex+'.jpg)'; // backgroundImage = 'url()'
+                    oSpan.style.backgroundPosition = -750/6*(n-1)+'px '+(-500/4*(m-1))+'px';
+                    oSpan.style.opacity = 1;
+                    oLeft.style.display = 'block';
+                    oRight.style.display = 'block';
+                }}else{
+                    for(var i=0;i<NUM;i++){
+                        var n = aImg[i].order.row;
+                        var m = aImg[i].order.col;
+                        aImg[i].style.left = (n*Width + (n-1)*oDiv.offsetWidth)+'px';
+                        aImg[i].style.top = (m*Height + (m-1)*oDiv.offsetHeight)+'px';
+                        aImg[i].style.transform = 'rotate('+(Math.random()*40-20)+'deg)';
+                        aImg[i].firstChild.style.opacity = 0;
+                        oLeft.style.display = 'none';
+                        oRight.style.display = 'none';
+
+                    }
+
+                    }
+                    bFlag = !bFlag;
+                }
+
+            oLeft.onclick = oRight.onclick = function(){
+                if(this === oRight){
+                    nowIndex++;
+                    if(nowIndex == NUM + 1){
+                        nowIndex = 1;
+                    }
+                }else{
+                    nowIndex--;
+                    if(nowIndex == 0){
+                        nowIndex = NUM;
+                    }
+                }
+
+                var arr = [];//0~23
+                for(var i=0; i<NUM; i++){
+                    arr.push(i);
+                }
+                arr.sort(function(a, b){
+                    return Math.random() - 0.5;
+                });
+
+                for(var i=0; i<arr.length; i++){
+                    var oSpan = aImg[arr[i]].getElementsByTagName("span")[0];
+                    oSpan.style.transitionDelay = (i + 1) * 50 + "ms";
+                    oSpan.style.backgroundImage = "url(img/"+ nowIndex +".jpg)";
+                }
+            };
+
+//            oLeft.onclick=function(){
+//                nowIndex--;
+//                var arr = [];
+//                for(var i=0;i<NUM;i++){
+//                    arr.push(i)
+//                }
+//                arr.sort(function(a,b){
+//                    return Math.random()-0.5;
+//                });
+//
+//                if(nowIndex<1){nowIndex = NUM}
+//                for(var i=0;i<NUM;i++){
+//                    var oSpan=aImg[arr[i]].getElementsByTagName('span')[0];
+//                    oSpan.style.transitionDelay = 50*(i+1)+'ms';
+//                    oSpan.style.backgroundImage = 'url(img/'+nowIndex+'.jpg)';
+//                }
+//
+//                }
+//
+//            oRight.onclick=function(){
+//                console.log('111')
+//                nowIndex++;
+//                var arr = [];
+//                for(var i=0;i<NUM;i++){
+//                    arr.push(i);
+//                }
+//                arr.sort(function(a,b){
+//                    return Math.random()-0.5;
+//                });
+//
+//                if(nowIndex>NUM){nowIndex = 1}
+//                for(var i=0;i<NUM;i++){
+//                    var oSpan=aImg[arr[i]].getElementsByTagName('span')[0];
+//                    oSpan.style.transitionDelay = 50*(i+1)+'ms';
+//                    oSpan.style.backgroundImage = 'url(img/'+nowIndex+'.jpg)'; // backgroundImage = 'url()'
+//                }}
+//
+//
+        }
+//
+
+
+
+
+
+
+
+    }
+
+</script>
+</body>
+</html>

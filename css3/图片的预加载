@@ -7,7 +7,7 @@ oImg.onload = function(){
 counter++;
 if(i == 图片数量){
 所有图片加载完成
-loadSuccess();
+loadSuccess(
 }
 };
 oImg.src = 'images/'+(i+1)+'.png'
