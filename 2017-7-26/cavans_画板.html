@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000000;
+        }
+        #cvs{
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="cvs" width="600px" height="500px"></canvas>
+<script>
+    window.onload = function () {
+        var oCvs = document.getElementById('cvs');
+        var ctx = oCvs.getContext('2d');
+        oCvs.onmouseup = function(){
+            oCvs.onmousedown = null;
+            console.log('100')
+        };
+
+        oCvs.onmousedown = function(e){
+            ctx.beginPath();
+            ctx.moveTo(e.clientX, e.clientY);
+            oCvs.onmousemove = function(e){
+                ctx.lineTo(e.clientX, e.clientY);
+                ctx.stroke();
+
+        };
+        };
+
+    };
+//echarts.baidu.com
+</script>
+</body>
+</html>

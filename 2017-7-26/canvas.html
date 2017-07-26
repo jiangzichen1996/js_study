@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background: #CCCCCC;
+        }
+        #cvs{
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="cvs" width="500px" height="500px"></canvas>
+<script>
+    var oCvs = document.getElementById('cvs');
+    var ctx = oCvs.getContext('2d');
+    ctx.moveTo(100,100);
+    ctx.lineTo(300,300);
+    ctx.strokeStyle='#f00';
+    ctx.stroke();
+</script>
+</body>
+</html>
