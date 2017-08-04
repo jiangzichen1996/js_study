@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000000;
+        }
+        #cvs{
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="cvs" width="600px" height="500px"></canvas>
+<script>
+    window.onload = function () {
+        var oCvs = document.getElementById('cvs');
+        var ctx = oCvs.getContext('2d');
+
+
+        oCvs.onmousedown = function(e){
+            ctx.beginPath();
+            ctx.moveTo(e.clientX, e.clientY);
+            oCvs.onmousemove = function(e){
+                ctx.lineTo(e.clientX, e.clientY);
+                ctx.stroke();
+        oCvs.onmouseup = function(){
+        oCvs.onmousemove = null; //这里要用onmousemove  因为要清除的事件是鼠标移动划线
+                    console.log('100')
+                };
+        };
+        };
+
+    };
+//echarts.baidu.com
+</script>
+</body>
+</html>

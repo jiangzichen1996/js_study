@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    #div1{
+    }
+</style>
+<div id="div1">
+    <input type="text" id="search"/>
+    <div class="div1">huawei</div>
+    <div class="div2">iphone</div>
+    <div class="div3">xiaomi</div>
+</div>
+<script src="../jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        /*$('#search').on("keyup",function(){
+            if(this.value!='')
+            {$('#div1 div').css('background','white');
+              var $div= $('#div1 div:contains('+this.value+')');
+                      $div.css('background','red');}
+            else{$('#div1 div').css('background','white');}
+
+                //.css('background','green');
+        })
+
+*/
+        $('#search').on('keyup', function () {
+            if(this.value!=''){
+            $('#div1 div').css('background','white');
+            $('#div1 div:contains('+this.value+')').css('background','red');
+        }else{$('#div1 div').css('background','white');}
+
+
+        })
+
+
+
+
+
+
+
+    });
+</script>
+</body>
+</html>

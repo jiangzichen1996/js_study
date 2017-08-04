@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="../jquery-1.9.1.min.js"></script>
+<script>
+    //设置cookie参数  ;expires 设置cookie时间
+//    var date = new Date();
+//    date.setDate(date.getDate()+7);
+//    document.cookie = 'username = lisi;expires = '+date.toUTCString();
+//    document.cookie = 'age = 14';
+    //得到cookie的方法
+    addCookie('ssss','asdf',7);
+    function addCookie(key,val,expires){
+        var str = key+'='+val;
+        if(expires){
+            var date = new Date();
+            date.setDate(date.getDate()+expires);
+            str += ';expires='+date.toUTCString()
+        }
+        document.cookie = str;
+
+    }
+    function getCookie(){
+        var arr = document.cookie.split(';');
+        for(var i=0;i<arr.length;i++){
+           var temp = arr[i].split('=');
+            if(temp[0].trim() == key ){return temp[1];} //trim函数 去除空格
+        }
+
+    }
+    function delCookie(key){
+        document.cookie = key +'=abc;expires=-1';
+
+    }
+
+
+
+</script>
+
+</body>
+</html>
