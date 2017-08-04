@@ -7,28 +7,100 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 </head>
-<body>
 <div id="wrapper">
     <header>
-        <input type="image" src="_themes/starbucks/img/menu_icon.svg" id="sidebarToggleImage" />
-        <br/><span>菜单</span>
-        <div id="sidebarIcoImage">
-        <img src="_themes/starbucks/img/favicon-v=20161028.ico">
+        <div id="menu">
+            <input type="image" src="_themes/starbucks/img/menu_icon.svg" id="sidebarToggleImage" />
+            <br/><span>菜单</span>
         </div>
-        <span id="reg">星享俱乐部 <a href="#">登录</a>或<a href="#">注册</a> </span></span>
+        <div id="sidebarIcoImage">
+            <img src="_themes/starbucks/img/logo.svg">
+        </div>
+        <span id="reg">星享俱乐部 <a href="#"><br/> 登录 </a>或<a href="#"> 注册 </a> </span></span>
     </header>
     <figure>
         <img src="assets/img/kv-desktop-cn-20170724152434.jpg" alt=""/>
     </figure>
     <div id="shop">
-        <div id="reward-mark">
-        <span>星享卡</span>
-            <img src="_themes/starbucks/img/home/rewards_logo_20170209.svg" alt=""/>
+        <div id="reward-wrapper">
+            <div  id="reward-mark">
+                <div id="reward-mask">
+                    <span>星享卡</span>
+                    <img src="_themes/starbucks/img/home/rewards_logo_20170209.svg" alt=""/>
+                </div>
+            </div>
+            <div id="mask2">
+                <h3>星享俱乐部</h3>
+                <span>开启您的星享之旅，星星越多、会员等级越高、好礼越丰富</span>
+                <button id="mask2-sign">注册</button>
+                <button id="mask2-reg">登录</button>
+
+            </div>
         </div>
     </div>
-    <div id="app"></div>
-    <div id="cake"></div>
-    <div id="coffee"></div>
-</div>
-</body>
+    <div id="app">
+        <div class="container">
+            <div id="app-device"></div>
+            <div id="app-download">
+                <img src="_themes/starbucks/img/home/app_qr_20170209.png">
+                <div id="app-download-button">
+                    <a href="#"><img src="assets/img/home-mobile/udp-ios-cn.svg"> </a>
+                    <a href="#" class="android"></a>
+                    <span>扫码下载APP</span>
+                </div>
+            </div>
+            <div class="content">
+                <p>下载全新星巴克中国官方APP，开启更便捷的星巴克体验。</p>
+                <a href="#">了解更多 &gt; &gt;</a>
+            </div>
+        </div>
+    </div>
+    <div id="cake">
+        <img src="_themes/starbucks/img/mooncake2017/banner-home.jpg" class="pc-cake">
+        <img src="_themes/starbucks/img/mooncake2017/mooncake-mobile.jpg" class="mobile-cake">
+    </div>
+    <div id="coffee">
+        <div id="coffee-left">
+            <img src="assets/img/summer3-wave1-tmall.jpg" alt=""/>
+            <div class="coffee-content">
+                <h2>谢谢你，咖啡师</h2>
+                <h3>星巴克天猫旗舰店</h3>
+            </div>
+        </div>
+        <div id="coffee-right">
+            <img src="assets/img/FT-Grid%20(2)-20170328191448.jpg" alt=""/>
+            <div class="coffee-content">
+                <h2>如天鹅绒般丝滑</h2>
+                <h3>气致?冷萃咖啡</h3>
+            </div>
+        </div>
+    </div>
+    <div id="wsg">
+        <div class="container">
+            <div id="wsg-container">
+                <div class="wsg-container-box">
+                    <img id="wsg-img1" src="_themes/starbucks/img/home/wsg-title.png" alt=""/>
+                    <img id="wsg-img2" src="_themes/starbucks/img/home/wsg-qrcode.png" alt=""/>
+                </div>
+                <div class="wsg-container-box">
+                    <img id="wsg-img3" src="_themes/starbucks/img/home/wsg-cup.png" alt=""/>
+                    <img id="wsg-img4" src="_themes/starbucks/img/home/wsg-wording.png" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="watch">
+        <div id="watch-img"></div>
+        <div class="content">
+            <p>星享更同步。现在您可以通过Apple Watch打开星巴克移动应用。更便捷地支付、查询星享卡还有查找附近门店。 </p>
+            <a href="#">了解更多 &gt; &gt;</a>
+        </div>
+        <div id="watch-down">
+            <div id="watch-down-img"></div>
+            <span> 扫码下载APP </span>
+        </div>
+    </div>
+    <script src="js/require.js" data-main="index"></script>
+
+    </body>
 </html>

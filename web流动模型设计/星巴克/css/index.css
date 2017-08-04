@@ -3,28 +3,54 @@
     padding: 0;
 }
 header{
+    overflow: hidden;
     height: 100px;
     box-shadow: 1px 1px 1px 1px rgba(100,100,100,.4);
 }
-#sidebarToggleImage{
-    margin: 27px 27px 0 27px ;
+#menu{
+    margin: 32px 32px 0 32px ;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+}
+#menu-list{
+    width: 270px;
+    height: 759px;
+    background: #707070;
+}
+#menu input{
+    outline-style: none;
 }
 header span{
-    margin-left: 30px;
+    font-size: 16px;
+}
+#menu span{
+    display: block;
+    width: 30px;
+    text-align: center;
     font-size: 12px;
 }
 #sidebarIcoImage{
     width: 73px;
-    margin: -55px auto;
+    margin: -50px auto;
+}
+#sidebarIcoImage img{
+    width: 73px;
+
 }
 #reg{
     display: block;
     float:right;
-    width: 60px;
+    width: 82px;
     margin-right: 30px;
+    margin-top: -12px;
 }
 #reg a{
     color: #b89f7a;
+    font-weight: bold;
+    font-size: 14px;
+
 }
 figure img{
     display: block;
@@ -33,19 +59,292 @@ figure img{
     cursor: pointer;
 }
 #shop{
-    background: #000;
+    background: #0F0F0F;
     height: 220px;
     color: #ffffff;
+    display: flex;
+
+}
+#reward-wrapper{
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 220px;
+    position: relative;
+
+
 }
 #reward-mark{
-    margin-left: 300px;
+    float: left;
     width: 350px;
     height: 220px;
     overflow: hidden;
-    background: url("../_themes/starbucks/img/home/rewards_bg.png");
+    background: url("../_themes/starbucks/img/home/rewards_bg.png") no-repeat;
+    background-size: contain;
+    flex-grow: 1;
+}
+#reward-mask{
+    position: absolute;
+    top: 80px;
+    left: 105px;
+    font-size: 18px;
+
+
+
 }
 #reward-mark span{
     display: block;
-    margin-top: 90px;
+
+}
+#reward-mask img{
+    width: 160px;
+    height: 38px;
+}
+#mask2{
     margin-left: 30px;
+    width: 430px;
+    height: 220px;
+    /*background: #ff0000;*/
+    float:left;
+
+}
+#mask2 h3{
+    font-size: 26px;
+    margin: 50px 0 0 0;
+    color: #ffffff;
+    font-weight: 400;
+
+
+}
+#mask2 button{
+    border: 2px solid #a98e67;
+    padding: 14px 40px;
+    color: #a98e67;
+    background: transparent;
+    margin: 15px 20px 0 0;
+    font-weight: 700;
+    cursor:pointer;
+
+}
+#app{
+    overflow: hidden;
+    width:100%;
+    height: 220px;
+    background:url('../_themes/starbucks/img/home/app_bg.gif') repeat scroll center;
+}
+.container{
+    width: 1170px;
+    margin:auto;
+    /*padding-left: 15px;*/
+    /*padding-right: 15px;*/
+    display: flex;
+    text-align: center;
+
+}
+#app-device{
+    height: 200px;
+    width: 350px;
+    margin-top: 20px;
+    background: url(../_themes/starbucks/img/home/app_device.png) center bottom no-repeat;
+    background-size: contain;
+    float:left;
+
+}
+#app-download{
+    flex-grow:1 ;
+    height: 220px;
+    margin: 0 30px 0 60px;
+}
+#app-download img{
+    width: 130px;
+    height: 130px;
+
+
+}
+.content{
+    flex-grow: 1;
+    width: 450px;
+    float:right;
+    margin-top: 65px;;
+}
+.content p{
+    display: block;
+    line-height: 28px;
+    color: #3d3d3d;
+    font-size: 25px
+}
+#app-download-button img{
+    margin-top: -20px;
+    float: left;
+}
+.content a{
+    text-decoration: none;
+    color: #b89f7a;
+}
+.android,#app-download-button span{
+    background: #ff0000;
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+#app-download-button span{
+    font-size: 12px;
+    background: transparent;
+    width: 60px;
+}
+#cake{
+    width: 100%;
+}
+.pc-cake{
+    max-width: 100%;
+    display: block;
+}
+.mobile-cake{
+    display: none;
+    max-width: 100%;
+    /*这里要加max-width 防止图片被放大*/
+}
+#coffee{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+
+}
+
+#coffee img{
+    width: 100%;
+    max-width: 100%;
+    display: block;
+
+}
+#coffee-left,#coffee-right{
+    width: 50%;
+    flex-grow:1;
+    position: relative;
+
+}
+
+.coffee-content{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    bottom: 10px;
+    margin-bottom: 10px;
+}
+.coffee-content h3{
+    font-weight: 900;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #a98e67;
+    letter-spacing: 3px;
+}
+.coffee-content h2{
+    letter-spacing: normal;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fffffe;
+    text-transform: none;
+}
+#wsg{
+    clear:both;
+    background: #106e4b;
+}
+#wsg-container{
+    padding: 35px 0;
+    width: 767px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.wsg-container-box{
+    flex-grow: 1;
+    width: 50%;
+    height: 150px;
+    display: flex;
+    overflow: hidden;
+    /*border: 1px solid;*/
+}
+
+.wsg-container-box img{
+    display: block;
+    margin:0 25px 0 20px;
+    height: auto;
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*transform: translate(0,-50%);*/
+}
+#wsg-img1,#wsg-img4{
+    width: 50%;
+    padding:  25px 0;
+
+
+}
+#wsg-img2,#wsg-img3{
+    margin-top: 15px ;
+    display: block;
+    width: 30%;
+    height: 110px;
+}
+#watch{
+    width: 100%;
+    height: 220px;
+    display: flex;
+    background: url(../_themes/starbucks/img/app-watch/web-bg.png);
+}
+#watch-img{
+    flex-grow: 7;
+    width: 408px;
+    height: 220px;
+    background: url(../_themes/starbucks/img/app-watch/web-iwatch-cn.png) right no-repeat;
+
+}
+#watch .content{
+    margin-top: 35px;
+    width: 360px;
+    flex-grow: inherit;
+    padding:0 60px 20px 60px;
+}
+#watch .content p {
+    font-size: 18px;
+    font-weight: 400;
+}
+#watch-down{
+    flex-grow: 6;
+    padding: 40px 0 0 10px;
+
+
+}
+#watch-down-img{
+    width: 130px;
+    height: 130px;
+    background: url(../_themes/starbucks/img/home/app_qr_20170209.png) center no-repeat ;
+    background-size: cover;
+
+}
+#watch-down span{
+    font-weight: 700;
+    display: block;
+    width: 130px;
+    text-align: center;
+}
+
+
+
+
+
+
+@media (max-width: 1169px ) {
+    .container{
+        width: 970px;
+    }
+    #wsg-container{
+    }
+}
+@media (max-width: 969px ){
+    .container{
+        width: 100%;
+    }
 }
