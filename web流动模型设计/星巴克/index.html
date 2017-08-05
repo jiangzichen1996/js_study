@@ -7,8 +7,74 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 </head>
-<div id="wrapper">
-    <header>
+    <body>
+    <div id="wrapper">
+        <div id="menu-mask"></div>
+        <div id="menu-list">
+            <ul class="nav-top">
+                <li><a href="">English</a></li>
+                <li><a href="">星巴克门店</a></li>
+                <li><a href="">天猫旗舰店</a></li>
+            </ul>
+            <ul class="nav-bottom">
+                <li><a href="">首页</a></li>
+                <li >
+                    <a href="">新品推荐</a>
+                    <span></span>
+                </li>
+                <ul class="menu-new">
+                    <li>当季新品</li>
+                    <li>星巴克月饼</li>
+                    <li>气致™冷萃咖啡</li>
+                    <li>冷萃冰咖啡</li>
+                    <li>星巴克ORIGAMI™</li>
+                    <li>星巴克焕新食</li>
+                </ul>
+
+
+                <li><a href="">星享俱乐部</a></li>
+                <li><a href="">星巴克移动应用</a><span></span></li>
+                <ul class="menu-new">
+                    <li>星巴克移动应用</li>
+                    <li>星巴克Apple Watch</li>
+                </ul>
+                <li><a href="">星礼卡</a></li>
+                <li><a href="">咖啡文化</a><span></span></li>
+                <ul class="menu-new">
+                    <li>咖啡文化</li>
+                    <li>星巴克臻选™咖啡</li>
+                    <li>如何冲泡咖啡</li>
+                </ul>
+                <li><a href="">饮品美食</a><span></span></li>
+                <ul class="menu-new">
+                    <li>饮品</li>
+                    <li>星巴克美食</li>
+                    <li>星巴克咖啡</li>
+                    <li>星巴克VIA® 免煮咖啡</li>
+                    <li>茶瓦纳™</li>
+                </ul>
+                <li><a href="">关于我们</a><span></span></li>
+                <ul class="menu-new">
+                    <li>企业新闻</li>
+                    <li>我们的使命和价值观</li>
+                    <li>星巴克责任</li>
+                    <li>工作在星巴克中国</li>
+                    <li>加入星巴克</li>
+                    <li>星巴克在中国</li>
+                    <li>历史回顾</li>
+
+                </ul>
+                <li><a href="">帮助中心</a><span></span></li>
+                <ul class="menu-new">
+                    <li>常见问题</li>
+                    <li>联系我们</li>
+                    <li>使用条款</li>
+                    <li>隐私权政策</li>
+
+                </ul>
+            </ul>
+            </div>
+        <header>
         <div id="menu">
             <input type="image" src="_themes/starbucks/img/menu_icon.svg" id="sidebarToggleImage" />
             <br/><span>菜单</span>
@@ -16,7 +82,7 @@
         <div id="sidebarIcoImage">
             <img src="_themes/starbucks/img/logo.svg">
         </div>
-        <span id="reg">星享俱乐部 <a href="#"><br/> 登录 </a>或<a href="#"> 注册 </a> </span></span>
+        <span id="reg">星享俱乐部 <a href="#"><br/> 登录 </a>或<a href="#"> 注册 </a></span>
     </header>
     <figure>
         <img src="assets/img/kv-desktop-cn-20170724152434.jpg" alt=""/>
@@ -44,7 +110,7 @@
             <div id="app-download">
                 <img src="_themes/starbucks/img/home/app_qr_20170209.png">
                 <div id="app-download-button">
-                    <a href="#"><img src="assets/img/home-mobile/udp-ios-cn.svg"> </a>
+                    <a href="#" class="app-store"><img src="assets/img/home-mobile/udp-ios-cn.svg"> </a>
                     <a href="#" class="android"></a>
                     <span>扫码下载APP</span>
                 </div>
@@ -71,7 +137,7 @@
             <img src="assets/img/FT-Grid%20(2)-20170328191448.jpg" alt=""/>
             <div class="coffee-content">
                 <h2>如天鹅绒般丝滑</h2>
-                <h3>气致?冷萃咖啡</h3>
+                <h3>气致™冷萃咖啡</h3>
             </div>
         </div>
     </div>
@@ -100,7 +166,8 @@
             <span> 扫码下载APP </span>
         </div>
     </div>
-    <script src="js/require.js" data-main="index"></script>
 
+    </div>
+    <script src="js/require.js" data-main="js/index"></script>
     </body>
 </html>
