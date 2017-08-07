@@ -4,7 +4,9 @@
 require(['jquery'],function($){
     var $mask = $('#menu-mask');
     var $list = $('#menu-list');
-    $('#menu').on('click',function(){
+    var $body = $('body');
+    var $menu = $('#menu');
+    $menu.on('click',function(){
         $list.css('width','270px');
         $('#menu-mask').css('display','block');
         $('#menu-list li').hover(function(e){
@@ -22,15 +24,37 @@ require(['jquery'],function($){
         });
     });
     $mask.on('click',function(e){
-        console.log(this);
-        console.log(e.target);
         if(this == e.target){
             $list.css('width','0');
             $('#menu-mask').css('display','none');
         }
-    })
+    });
+    var lastScroll = 0;
+    var $header = $('#wrapper header');
+     function move () {
+             if(lastScroll-$body.scrollTop()>0){
+                 $header.css('height','100px');
+                 $list.css('width','0');
+                 $('#menu-mask').css('display','none');
 
+             }else if(lastScroll-$body.scrollTop()<0){
+                 $header.css('height','0');
+                 $list.css('width','0');
+                 $('#menu-mask').css('display','none');
 
+             }
+             lastScroll = $body.scrollTop();
+    }
+
+    var timer = setInterval(move,10);
+    setInterval(function(){
+        if($body.scrollTop()<120){
+            $header.css('position','fixed');
+            clearInterval(timer);
+        }else{
+            timer = setInterval(move,10)
+        }
+    },10);
 
 
 
