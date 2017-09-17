@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+        css：层叠样式表
+        1.内联样式
+        2.内部样式
+        3.外部样式
+        权重值：
+        内联>id>class>tag
+        子代选择器  >
+        兄弟选择器  +（选中一个） ~（选中多个）
+
+
+        盒模型：
+            标准盒模型：宽度=内容宽度
+            怪异盒模型（混杂模式）：宽度=内容+padding+border
+
+
+        转化： box-sizing：border-box；
+        透明：transparent；
+        三角形：{
+            border-width：50px；
+            width：0；
+            border-style：solid；
+            border-top：某颜色
+            border-left：某颜色
+            border-right：某颜色
+            border-bottom：某颜色
+
+        }
+
+
+        元素塌陷问题的解决：
+            1.给父元素设置高度
+            2.父元素也浮动
+            3.设置::after{
+                content::"";
+                display:block;
+                clear:both;
+            }
+            4.定位(4种){ static  relative    absolute   fixed}
+
+
+        行级元素：只能设置左右的margin，不能设置上下  padding都能用
+     元素居中：
+              行级元素居中：给父元素加 text-alain：center  高度等于父元素
+              块级元素居中：
+             1. margin-top：-xxpx；
+                margin-left：-xxpx；
+             2. translate（-50%，-50%）
+      父子外边距合并：
+                    1.加边框
+                    2.overflow：hidden
+                    3.float
+     兄弟外边距合并（合并取最大的）：
+             1.给一个设置
+             2.定位
+
+
+
+-->
+</body>
+</html>

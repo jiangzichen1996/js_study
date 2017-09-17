@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+    js基本数据类型: undefined null number string boolean
+    var
+    function
+
+    .indexOf 可以检索字符串和数组
+    function fn(){}  可以在函数声明前调用
+    var function fn(){} 只能在函数声明后调用
+
+    arguments 函数参数组成的类数组
+    function fn(){
+    console.log(arguments[0]);
+    }
+        fn('123');
+        arguments.callee()
+    空字符串和0和undefined，null，NaN都是false
+    undefined==null  输出true  undefined类型是undefined；
+    undefined===null  输出false null类型是object；
+    5/0  输出结果为Infinity；
+
+    navigator.userAgent  获取浏览器类型
+
+    timer=setInterval(function(){});
+    返回值类型为num
+
+    元素选中
+    document.getElementById()
+    document.getElementByTagName()
+    document.getElementByClassName()
+    document.getElementByName()
+    document.querySelector()
+    document.querySelectorAll()
+
+    addEventListener("事件类型(click)",function,false(事件冒泡))  (ie不支持)
+    attachEvent("onclick",function)  绑定顺序问题（绑定顺序相反） this指向window
+
+    事件委托、事件代理
+    事件：事件源  事件处理函数 事件对象 e||window.event
+    事件冒泡  内->外
+    事件捕获  外->内
+    阻止事件冒泡方法：
+    标准浏览器 ：e.stopPropagation();
+    ie：window.event.cancelBubble=true；
+
+    1.子元素事件为委托给父元素绑定 事件源：e.target  window.event.srcElement
+    2.后生成的元素事件绑定问题
+    e.currentTarget=this
+
+    call apply  bind
+    fn.call (obj,2,3)
+    fn.apply(obj,[2,3])
+    fn.bind(obj)(2,3)
+
+    this 当前对象的引用
+    setInterval指向的是window
+    .oncontextmenu  return false  可以阻止浏览器的默认行为
+
+  removeChild()
+  appendChild()
+-->
+</body>
+<script>
+    function fn(num){
+
+    }
+</script>
+</html>

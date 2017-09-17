@@ -229,6 +229,7 @@ figure .figure-img2{
     /*padding-right: 15px;*/
     display: flex;
     text-align: center;
+    justify-content: center;
 
 }
 #app-device{
@@ -437,7 +438,7 @@ figure .figure-img2{
     width: 188px;
     height: 75px;
     margin: 0 auto;
-    background: url(../_themes/starbucks/img/app-watch/udp-starbucks-cn.svg)
+    background: url(../_themes/starbucks/img/app-watch/udp-starbucks-cn.svg);
 }
 
 
@@ -472,10 +473,10 @@ figure .figure-img2{
     }
 }
 
-/*@media (max-width: 1196px ) {*/
-    /*.container{*/
-        /*width: 970px;*/
-    /*}}*/
+@media (max-width: 1196px ) {
+    .container{
+        width: 970px;
+    }}
 
 @media (max-width: 990px){
     figure .figure-img1{
@@ -484,7 +485,7 @@ figure .figure-img2{
     figure .figure-img2{
         display: block;
     }
-    /*.container{*/
-        /*width: 750px;*/
-    /*}*/
+    .container{
+        width: 750px;
+    }
 }
