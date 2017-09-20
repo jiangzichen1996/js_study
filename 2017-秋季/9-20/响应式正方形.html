@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #div-{
+            /*display: flex;*/
+        }
+        #div1,#div3{
+            /*display: flex;*/
+            /*flex-grow: 1;*/
+        }
+        #div2{
+            /*margin: 0 auto;*/
+            /*padding-top: 33.3%;/!*padding  margin百分比相对于父元素的宽度*!/*/
+            background: red;
+            /*flex-grow: 1;*/
+            overflow: hidden;
+            height: 20vw;
+            width: 20vw;
+        }
+        /*#div2::after{*/
+            /*content: '';*/
+            /*display: block;*/
+            /*/!*padding-top: 100%;*!/*/
+            /*margin-top:100%;*/
+
+        /*}*/
+        /*em相对于父元素  rem相对于html的font-size*/
+    </style>
+</head>
+<body>
+<div id="div-">
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <!--
+    1.利用padding-top
+    2.利用伪元素 再使用margin-top(需加overflow:hidden防止掉下来)或padding-top
+    3.利用vw 或者vh
+    -->
+
+    <!--
+    nth-child(2n+1)  从1开始数  不支持负数
+    -->
+    <!--
+    jquery eq() 从0开始  支持负数(倒着找数)
+     -->
+    <!-- 超出部分省略号
+         white-space:no-wrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+     -->
+
+<!--
+  弹性盒模型 有内容的时候要设置成 width：
+-->
+<!--iconfont-->
+<!--
+    放大镜 滚动条原理 任意位置距离比上最大位置距离
+-->
+</div>
+</body>
+</html>
