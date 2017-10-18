@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    let obj1 = {
+//        name:'zhangsan',
+//        age:18
+//    };//new Object()
+    /*let name ='zhangsan';
+    let age= 18;
+    let obj2={
+        name,
+        age
+    }*/
+//
+//    let ls='lisi';
+//    let obj3 = {
+//        name:ls
+//    };
+//
+//
+//
+//
+
+
+    let n='name';
+    let age=20;
+    let obj3 ={
+        [n]:'lisi',
+        age,
+    };
+
+    let name = 'zhangsan';
+    let obj4={
+        name,
+        coding(){//coding: function(){}
+
+        }
+    };
+    //Object.is()  跟=== 基本一样 除了+0，-0    NaN NaN
+console.log(Object.is(+0,-0));
+    console.log(+0===-0)
+
+</script>
+</body>
+</html>
