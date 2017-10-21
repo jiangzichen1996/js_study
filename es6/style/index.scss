@@ -1,0 +1,45 @@
+#div1 {
+  background: #CCCCCC;
+  width: 100px;
+  .aa {
+    background: #f00;
+  }
+}
+
+$w: 100px;
+#div2 {
+  width: $w;
+}
+
+$h: 200px;
+$color:#ff0;
+@mixin n() {
+  color:$color;
+}
+#div3 {
+  height: $h;
+  @extend #div1;
+  &:hover {
+    background: red;
+    @include n();
+    border:{
+      left: 100px;
+      top: 100px;
+
+    }
+  }
+  /*! test*/
+
+}
+@for $i from 1 through  5{
+  .test-#{$i} {
+  background: #CCCCCC;
+}
+}
+$i:6;
+@while ($i>0){
+  .test-#{$i} {
+    background: #CCCCCC;
+  }
+  $i:($i)-1;
+}

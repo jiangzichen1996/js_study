@@ -5,10 +5,27 @@
     <title></title>
 </head>
 <body>
+
+<div class="aa bb"></div>
+<span class="aa bb"></span>
 <script>
     for(let i=0;i<10;i++){
         const j=10;
         console.log(j);
+    }
+    console.log(getByClass('aa'));
+    function getByClass(selector,context){
+        context=context||document;
+        let result=[];
+        let arr=context.getElementsByTagName('*');
+        let re=new RegExp(`\\b${selector}\\b`);
+        for(let i=0;i<arr.length;i++){
+            if(re.test(arr[i].className)){
+                result.push(arr[i]);
+            }
+        }
+        return result;
+
     }
 </script>
 </body>
