@@ -2,7 +2,7 @@ function $(selector, context) {
     context=context||document;
     switch (selector.charAt(0)){
         case '#': return context.getElementById(selector.substring(1));break;
-        case '.': return context.getElementsByClassName(selector.substring(1));break;
+        case '.': return getByClass(selector.substring(1),context);break;
         default:  return context.getElementsByTagName(selector);break;
     }
 }
@@ -20,4 +20,9 @@ function getByClass(selector,context){
     return result;
 
 }
-// function next
+function next(elem){
+    do{
+        elem = elem && elem.nextSibling;
+    }while(elem && elem.nodeType != 1);
+    return elem;
+}
