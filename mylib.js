@@ -32,3 +32,7 @@ function prev(elem){
     }while(elem && elem.nodeType !=1);
     return elem;
 }
+function last(elem) {
+    elem =elem.lastChild;
+    return elem && elem.nodeType == 1 ? elem : prev(elem)
+}
