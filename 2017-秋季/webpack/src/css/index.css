@@ -3,3 +3,14 @@
     width: 200px;
     height: 200px;
 }
+#div2{
+    width: 200px;
+    height: 200px;
+    background: url('../img/1.jpg');
+}
+#div6{
+    display: flex;
+}
+.asd{
+    height: 100px;
+}

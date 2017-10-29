@@ -1,5 +1,24 @@
-#div1{
-    background: red;
-    width: 200px;
-    height: 200px;
+/*! chen */
+#div1 {
+  background: red;
+  width: 200px;
+  height: 200px;
+}
+
+#div2 {
+  width: 200px;
+  height: 200px;
+  background: url(http://127.0.0.1:8081/images/4dbcad9d1e2717afd203cb568021f670.jpg);
+}
+
+#div6 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#div5 {
+  width: 200px;
+  height: 200px;
+  background: #f00;
 }
