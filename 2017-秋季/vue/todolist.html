@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+            width: 400px;
+            height: 50px;
+            display: block;
+            background: #ccc;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 50px;
+        }
+        span{
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+        .bb{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input v-model="Name" type="text">
+        <input v-model="Money"type="text">
+        <button @click="Add(i)">submit</button>        <ul>
+            <li :class="{bb:j.isbb}"  v-for="(j,index) in i":key="index" @click=add(count,j) >
+                <input type="checkbox"  @click=pop(det,index)></input>
+                {{j.name}} {{j.money}}
+            </li>
+            <span>总价：{{count}}</span>
+        </ul>
+        <button @click=delect(i,det)>delete</button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                Name:"",
+                Money:"",
+                det:[],
+                i:[{
+                    name:"产品1",
+                    money:123,
+                    isbb:false,
+                    num:1
+                },{
+                    name:"产品2",
+                    money:12,
+                    isbb:false,
+                    num:2
+                    
+                },{
+                    name:"产品3",
+                    money:33,
+                    isbb:false,
+                    num:3
+                },{
+                    name:"产品4",
+                    money:234,
+                    isbb:false,
+                    num:4
+                },{
+                    name:"产品5",
+                    money:543,
+                    isbb:false,
+                    num:5
+                }],
+                count:0,
+                isbb:false                
+            },
+            methods:{
+                add(a,b){
+                    if(b.isbb){
+                    this.count-=b.money;
+                    }else{
+                        this.count+=b.money;
+                    }
+                    b.isbb=!b.isbb;
+                },Add(i){
+                    i.push(
+                        {
+                            name: this.Name ,
+                            money: parseInt(this.Money),
+                            isbb:false
+                        }
+                    );
+                },pop(det,index){
+                    if(det.includes(index)!==false){
+                        det.splice(det.indexOf(index),1);
+                    }else{
+                    det.push(index);
+                    }
+
+
+
+
+                },delect(i,det){
+                        det.sort(function(a,b){
+                            return b-a;     
+                        });
+                        for(let p=0;p<det.length;p++){
+                         i.splice(det[p],1);
+                        }
+                    
+                }
+            }
+        });
+    </script>
+</body>
+</html>

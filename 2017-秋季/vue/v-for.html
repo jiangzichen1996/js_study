@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(p,x) in school":key=x>{{p}}</li>
+            <li v-for="(y,z) in obj">{{y}}---{{z}}</li>
+        </ul>
+   <button @click="add(1,msg)">aaa</button>
+   
+   </div>
+   <script src="vue.js"></script>
+   <script>
+       let vm = new Vue({
+           el:"#app",
+           data:{
+               msg:"helloworld",
+               school:['a','b','c','d'],
+               obj:{
+                   asd:123,
+                   sdf:234
+               }
+           },
+           methods:{
+               add(x,y){
+                    return console.log(x+y);
+               }
+           }
+       });
+   </script>
+</body>
+</html>
