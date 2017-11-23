@@ -11,6 +11,8 @@
       </h1>
   </div>
 </template>
+
+
 <script>
     import store from '@/vuex/store'
     export default {
