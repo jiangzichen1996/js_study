@@ -33,6 +33,8 @@ export default {
         this.isShow = true;
       })
       .catch();
+  },beforeRouteLeave: (to, from, next) => {
+    next();
   }
 };
 </script>

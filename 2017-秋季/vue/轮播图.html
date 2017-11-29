@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            text-decoration: none;
+            list-style: none;
+        }
+
+        #im {
+            position: relative;
+            margin: 0 auto;
+            width: 520px;
+            height: 280px;
+        }
+        .container{
+            position: relative;
+            margin: 0 auto;
+            width: 520px;
+            height: 280px;
+        }
+        .imgs,imgs img {
+            width: 520px;
+            height: 280px;
+        }
+
+        .imgs {
+            position: absolute;
+        }
+        #num{
+            position: absolute;
+            right: 0;
+            bottom: 0px;
+        }
+        #num li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            background: #cccccc;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #num .cli{
+            background: orange;
+        }
+        .sli-enter{
+            opacity: 0;
+        }
+        .sli-enter-active{
+            transition: all 1s;
+        }
+        .sli-leave-active{
+            transition: all 1s;
+        }
+        .sli-leave{
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container"  @mouseover='clear' @mouseout='go'>
+                <transition-group tag="ul" id='im' name='sli'>
+                        <li class='imgs' v-show="nowIndex==(index+1)" v-for="(s,index) in imgs" :key=s>
+                                <img :src="s" alt="">
+                            </li>
+                            
+                </transition-group> 
+                <ul id="num">
+                        <li  v-for="item in imgs.length" v-text=item :class="{cli:nowIndex==item}" @mouseover="change(item)"></li>
+                </ul>
+        </div>
+        
+            
+
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    let vue = new Vue({
+        el: "#app",
+        data() {
+            return {
+                imgs: [
+                    "imgs/1.jpg", "imgs/2.jpg", "imgs/3.jpg", "imgs/4.jpg",
+                ],
+                nowIndex:1,
+                timer:''
+            }
+        },
+        methods:{
+            change(i){  
+                this.nowIndex=i;
+            },
+            go(){
+                this.timer=setInterval(()=>{
+                    if(this.nowIndex<4){
+                        this.nowIndex++;                        
+                    }else{this.nowIndex=1}        
+                },3000)
+            },
+            clear(){
+                clearInterval(this.timer);
+            }
+        },
+        mounted(){
+            this.go()
+
+        }
+
+        
+    })
+</script>
+
+</html>
